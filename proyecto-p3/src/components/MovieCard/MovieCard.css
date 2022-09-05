@@ -1,0 +1,12 @@
+.movieCard{
+    width: 19%;
+    margin: 5px;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
