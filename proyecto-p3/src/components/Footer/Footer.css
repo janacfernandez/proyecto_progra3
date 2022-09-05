@@ -1,0 +1,42 @@
+/*----------------------
+  Footer Section
+------------------------*/
+
+.footer-section {
+	padding: 18px 0 16px;
+	overflow: hidden;
+	background: #252525;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.footer-menu {
+	list-style: none;
+	float: right;
+    margin: auto;
+    padding: 0%;
+
+}
+
+.footer-menu li {
+	display: inline;
+}
+
+.footer-menu li a {
+    text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 500;
+	color: #aeaeae;
+	margin-left: 30px;
+}
+
+.copyright {
+	float: left;
+	margin-bottom: 0;
+    font-size: small;
+	font-weight: 300;
+	color: #aeaeae;
+}

@@ -1,30 +1,33 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+/*import {Link} from 'react-router-dom'; */
+import './Header.css';
 
 
-function Header (){
+function Header() {
 
     return (
-        <nav>
-        <Link to='/' className='logo'><img src="/img/logo.png" alt="Logo" /></Link>
-            <ul className='header-cont'>                
-                <li> 
-                    <Link to='/'> Home </Link>
-                </li>
-                <li> 
-                    <Link to='/Favoritos'> Favoritos </Link>
-                </li>
-                <li>                    
-                    <div className="drop">
-                        <p className="drop1"> Ver todas </p>                                                
-                        <div className="drop2">
-                        <Link to='/All'> Peliculas más populares 2022 </Link>                            
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </nav>
+
+        <header className='header-section'>
+                <img src="/img/logo.png" alt="Logo"  className='site-logo' />
+
+                    <nav className='main-menu'>
+                    <ul>
+                        <li>
+                            Home
+                        </li>
+                        <li>
+                            Favoritos
+                        </li>
+                        <li>
+                            Populares
+                        </li>
+                        <li>
+                            Ver todas
+                        </li>
+                    </ul>
+                </nav>
+        </header>
     )
 }
 
-export default Header ;
+export default Header;
