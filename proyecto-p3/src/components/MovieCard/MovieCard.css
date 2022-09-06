@@ -3,6 +3,10 @@
     margin: 5px;
 }
 
+.movieCard img {
+    width: 100%;
+}
+
 .hide{
     display: none;
 }
