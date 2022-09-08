@@ -14,8 +14,7 @@ class Principal extends Component {
         }
     }
 
-    componentDidMount() {
-        
+    componentDidMount() {      
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=' + this.state.key + '&language=es&page=1')
             .then(data => data.json())
             .then(info => {
@@ -58,7 +57,7 @@ class Principal extends Component {
     
     verMas() {
         this.setState({
-            allMovies: this.state.allMovies.slice(11,20)
+            popularMovies: this.state.allMovies.slice(10,20)
         })
     }
 
@@ -88,8 +87,6 @@ class Principal extends Component {
                     </section>
 
                 }
-                
-
            </div>
 
         )
