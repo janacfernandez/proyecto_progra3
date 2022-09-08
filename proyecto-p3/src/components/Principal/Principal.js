@@ -8,6 +8,8 @@ class Principal extends Component {
             key: 'f59e4c6662e96a0d026c2c66a7dcf812',
             popularMovies: [],
             cartelMovies: [],
+            resultados: [],
+            valor: '',
             verMas: true,
         }
     }
@@ -17,34 +19,76 @@ class Principal extends Component {
             .then(res => res.json())
             .then(data => {
                 this.setState({
-                popularMovies: data.results,
-            }, () => console.log(this.state.popularMovies))
+                    popularMovies: info.results.slice(0, 10),
+                })
             })
 
-            fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key)
-            .then(res => res.json())
-            .then(data => {
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key)
+            .then(data => data.json())
+            .then(info => {
                 let idsMovies = this.state.popularMovies.map(elemento => elemento.id)
                 let movies = data.results.filter(elemento => !idsMovies.includes(elemento.id))
                 this.setState({
-                cartelMovies: movies,
-                }, () => console.log(movies)) })
-           
+                    cartelMovies: movies.slice(0, 10),
+                })
+            })
+    }
+
+    evitarSubmit(e) {
+        e.preventDefault();
+    }
+
+    controlarCambios(e) {
+          this.setState({
+            valor: e.target.value,
+        }, () => {
+            fetch('https://api.themoviedb.org/3/search/movie?api_key=' + this.state.key + '&query=' + this.state.valor)
+                .then(data => data.json())
+                .then(info => {
+                    this.setState({
+                        resultados: info.results
+                    })
+                })
+            
+        })         
     }
 
     render() {
         return (
             <div>
-            <h1>Más Populares</h1>
-            <section className = "movieContainer">
-              {this.state.popularMovies.map((elemento, i) => <MovieCard key = {elemento + i } name = {elemento.title} img = {'https://image.tmdb.org/t/p/w185/'+elemento.poster_path} alt = {elemento.title} description = {elemento.overview} data={elemento} id={elemento.id}/>)}
-            </section>
+                <form onSubmit={(e) => this.evitarSubmit(e)}>
+                    <input type="text" onChange={(e) => this.controlarCambios(e)} />
+                    <button type="submit">Buscar</button>
+                </form>
 
-            <h1>En cartelera</h1>
-            <section className = "movieContainer">
-            {this.state.cartelMovies.map((elemento, i) => <MovieCard key = {elemento + i} name = {elemento.title} img = {'https://image.tmdb.org/t/p/w185/'+elemento.poster_path} alt = {elemento.title} description = {elemento.overview} data={elemento} id={elemento.id}/>)}
-          </section>
-          </div>
+                {this.state.valor.length === 0 ?
+                    <React.Fragment>
+                        <h1>Más Populares</h1>
+                        <section className="movieContainer">
+                            {this.state.popularMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} />)}
+                        </section>
+
+                        <h1>En cartelera</h1>
+                        <section className="movieContainer">
+                            {this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} />)}
+                        </section>
+                    </React.Fragment>
+                    :
+                    <section className="movieContainer">
+                        {this.state.resultados.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} />)}
+                    </section>
+
+                }
+                
+
+                {/* {console.log(this.state.popularMovies)}
+                {console.log(this.state.cartelMovies)} */}
+                {console.log(this.state.resultados)}
+                {console.log(this.state.valor)}
+
+
+
+            </div>
 
         )
     }
