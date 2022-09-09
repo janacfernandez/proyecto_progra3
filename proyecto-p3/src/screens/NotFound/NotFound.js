@@ -1,14 +1,15 @@
 
 import React from "react";
+import "./NotFound.css";
 
 function NotFound() {
 
     return (        
-            <section /*> className="" */ > 
-                <img src="./img/404error.jpg" alt= "404 not found" /*> className="" *//>
+            <section className="section404"> 
+                <img src="./img/404error.jpeg" alt= "404 not found" className="img404" />
             </section>                  
     );
-    
+   
 }
 
-export default NotFound ;
+export default NotFound;
