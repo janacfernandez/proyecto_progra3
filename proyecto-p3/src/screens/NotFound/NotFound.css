@@ -6,3 +6,23 @@
     border-radius: 8px;
     margin: 8px;
 }
+
+/*Media queries*/
+/*Tablets*/
+@media (max-width: 768px){
+    
+    .img404 {
+        display: inline;
+        width: 70%;
+    }
+
+}    
+
+/*Celulares*/
+@media (max-width: 420px){ 
+    .img404 {
+        display: inline;
+        width: 70%;
+    }
+
+}

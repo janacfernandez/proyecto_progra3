@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import verTodasPelis from "../../components/verTodasPelis/verTodasPelis";
+/* import verTodasPelis from "../../components/verTodasPelis/verTodasPelis"; */
 import './todasPelis.css';
 import '../../loadingimg.gif' 
 
