@@ -9,7 +9,7 @@ function Header() {
 
         <header className='header-section'>
                 <img src="/img/logo.png" alt="Logo"  className='site-logo' />
-
+              
                     <nav className='main-menu'>
                     <ul>
                         <li>
@@ -22,7 +22,7 @@ function Header() {
                             Populares
                         </li>
                         <li>
-                            Ver todas
+                            En cartelera
                         </li>
                     </ul>
                 </nav>

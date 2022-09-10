@@ -1,0 +1,47 @@
+.allMoviesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;    
+    border-radius: 5px;
+    width: 100%;
+}
+
+.buttonVerMasAllMovies-container {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonVerMasAllMovies {
+    background-color: black;
+    color: white;
+    font-size: 22px;
+    border: white 2px solid;
+    border-radius: 15px;
+    padding: 11px 17px 11px 17px;
+
+}
+
+
+.allMoviesH1 {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px){
+    
+   .allMoviesContainer {       
+        flex-direction: row;         
+        justify-content: space-around;
+    }    
+
+}
+
+@media (max-width: 420px){ 
+
+   .allMoviesContainer {       
+        flex-direction: column; 
+        align-items: center;        
+    }
+
+}

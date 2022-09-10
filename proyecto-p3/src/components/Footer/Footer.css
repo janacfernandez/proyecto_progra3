@@ -5,7 +5,7 @@
 .footer-section {
 	padding: 18px 0 16px;
 	overflow: hidden;
-	background: #252525;
+	background: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,6 +31,10 @@
 	font-weight: 500;
 	color: #aeaeae;
 	margin-left: 30px;
+}
+
+.footer-menu li a:hover {
+	color: #00C2CB;
 }
 
 .copyright {
