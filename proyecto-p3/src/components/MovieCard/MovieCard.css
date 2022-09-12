@@ -1,10 +1,38 @@
 .movieCard{
-    width: 19%;
-    margin: 5px;
+    width: 18%;
+    background-color: #9c9c9c;
+    border-radius: 5%;
+    margin: 10px 0;
+
+}
+
+.movieCard :hover {
+    filter:brightness(110%);    
 }
 
 .movieCard img {
     width: 100%;
+    border-radius: 5% 5% 0 0;
+
+}
+
+.movieCard h3 {
+    color: white;
+    font-family: sans-serif;
+    font-size: 1em;
+}
+.movieCard p{
+    color: white;
+    font-family: sans-serif;
+    font-size: 0,5em;
+}
+
+.contenedor1 {
+   margin: 10px;
+}
+
+.viewMore{
+    cursor:pointer;
 }
 
 .hide{
@@ -14,3 +42,10 @@
 .show{
     display: block;
 }
+
+.contenedorDetalleFav{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+

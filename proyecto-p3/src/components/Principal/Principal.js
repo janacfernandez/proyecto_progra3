@@ -33,7 +33,7 @@ class Principal extends Component {
                 }, () => console.log(this.state.movies[0]))
             })
 
-        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key)
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key + '&language=es&page=1')
             .then(data => data.json())
             .then(info => {
                 let idsMovies = this.state.allMovies.map(elemento => elemento.id)
@@ -112,13 +112,13 @@ class Principal extends Component {
         return (
             <div>
                 <form onSubmit={(e) => this.evitarSubmit(e)}>
-                    <input type="text" onChange={(e) => this.controlarCambios(e)} placeholder='¿Qué querés ver?' />
+                    <input className = "buscador" type="text" onChange={(e) => this.controlarCambios(e)} placeholder='¿Qué querés ver?' />
                 </form>
 
                 {this.state.valor.length === 0 ?
                     <React.Fragment>
                         <h1>Más Populares</h1>
-                        <section className="movieContainer">
+                        <section className="movieContainer populares">
                             {this.state.popularMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id}/>)}
                         </section>
                         <div className='flechas'>
@@ -137,11 +137,12 @@ class Principal extends Component {
                         </div>
 
                         <h1>En cartelera</h1>
-                        <section className="movieContainer">
+                        <section className="movieContainer cartelera">
                             {this.state.cartelMovies.length === 0 ?
                                 <img className ="gifcargando" src={loadingimg} alt="Cargando..." />
                                 :
                                 this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} />)}
+                                
                         </section>
                         <div className='flechas'>
                             <p onClick={() => this.verMenosCar()}>
@@ -155,8 +156,8 @@ class Principal extends Component {
                                 </span>
                             }
                             </p>
-
                         </div>
+                        
                     </React.Fragment>
 
                     :
