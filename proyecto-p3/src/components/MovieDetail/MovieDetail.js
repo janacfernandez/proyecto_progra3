@@ -32,11 +32,12 @@ class MovieDetail extends Component {
              <article className='photo-container'>
                         <img src={`https://image.tmdb.org/t/p/w342/${this.state.info.poster_path}`} alt={this.state.info.title}/>
                     </article>
-            <p>Rating: {this.state.info.popularity}</p>
-            <p>Release date: {this.state.info.release_date}</p>
-            <p>Plot: {this.state.info.overview}</p>
+            <p>Ranking: {this.state.info.popularity}</p>
+            <p>Fecha de estreno: {this.state.info.release_date}</p>
+            <p>Duración: {this.state.info.runtime}</p>
+            <p>Sinópsis: {this.state.info.overview}</p>
             <ul className='genre'>
-                            genres:
+                            Géneros:
                             {
                                 this.state.info.genres.map((oneGenre, i) => <li className='genre' key={oneGenre.id + i}>{oneGenre.name}</li>)
                             }

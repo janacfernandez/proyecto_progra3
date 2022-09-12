@@ -3,7 +3,7 @@
 ---------------------*/
 
 .header-section {
-	background: #141415;
+	background: black;
 	clear: both;
 	overflow: hidden;
 	padding: 18px 18px;
@@ -12,7 +12,8 @@
 }
 
 .site-logo {
-    width: 5%;
+    width: 10%;
+	margin-left: 20px;
 }
 
 .main-menu {

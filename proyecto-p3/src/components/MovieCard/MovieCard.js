@@ -7,6 +7,7 @@ class MovieCard extends Component {
         super(props);
         this.state = {
             verMas: true,
+            favsMessage: 'Agregar a favoritos'
         }
     }
 
@@ -16,6 +17,58 @@ class MovieCard extends Component {
         })
       }
 
+componentDidMount() {
+  let favoritos = [];
+  let recuperoStorage = localStorage.getItem('favoritos')
+
+  if(recuperoStorage !== null) {
+     let favsToArray = JSON.parse(recuperoStorage);
+      favoritos = favsToArray
+  }
+
+  if(favoritos.includes(this.props.id)){
+    this.setState({
+      favsMessage : 'Quitar de favoritos'
+    })
+  }
+}
+
+agregarYQuitarDeFavs(id){
+  //agegar id dentro del Array que creamos y guardarlo en localstorage.
+        // Si el id ya existe, posibilidad de quitar el id del array.
+
+    let favoritos = [];
+
+    let recuperoStorage = localStorage.getItem('favoritos')
+
+    if(recuperoStorage !== null) {
+      let favsToArray = JSON.parse(recuperoStorage);
+       favoritos = favsToArray
+   }
+
+   if(favoritos.includes(id)){
+    favoritos = favoritos.filter(idFav => idFav !== id);
+    
+    this.setState({
+      favsMessage: 'Agregar a favoritos'
+    })
+    
+  } else {
+    favoritos.push(id); 
+
+    this.setState({
+      favsMessage: 'Quitar de favoritos'
+    })
+  }
+ 
+  let favoritosToString = JSON.stringify(favoritos);
+  localStorage.setItem('favoritos', favoritosToString);
+
+  
+  console.log(localStorage);
+}
+
+
     render(){
         return(
           <React.Fragment>
@@ -24,6 +77,7 @@ class MovieCard extends Component {
                <Link to={`/movie/id/${this.props.id}`}> 
                 <img src={this.props.img} alt={this.props.alt}/> 
               </Link>
+              <p onClick={()=>this.agregarYQuitarDeFavs(this.props.id)}>{this.state.favsMessage}</p>
                 <p onClick={() => this.verMasFunc()}>
             {
               this.state.verMas ? "Ver Más" : "Ver menos"

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import { Link } from 'react-router-dom';
 import '../Principal/Principal.css'
+import loadingimg from "../../loadingimg.gif";
 
 class Principal extends Component {
     constructor() {
@@ -64,6 +65,12 @@ class Principal extends Component {
         })
     }
 
+    verMas() {
+        this.setState({
+            popularMovies: this.state.allMovies.slice(10, 20)
+        })
+    }
+
     verMasPop() {
         this.setState({
             popularMovies: this.state.movies[this.state.index + 1],
@@ -112,9 +119,6 @@ class Principal extends Component {
                         <h1>Más Populares</h1>
                         <section className="movieContainer">
                             {this.state.popularMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} />)}
-
-
-
                         </section>
                         <div className='flechas'>
                             <p onClick={() => this.verMenosPop()}>
@@ -130,9 +134,13 @@ class Principal extends Component {
                             </p>
                             
                         </div>
+                        
                         <h1>En cartelera</h1>
                         <section className="movieContainer">
-                            {this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} />)}
+                            {this.state.cartelMovies.length === 0 ?
+                                <img src={loadingimg} alt="Cargando..." />
+                                :
+                                this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} />)}
                         </section>
                         <div className='flechas'>
                             <p onClick={() => this.verMenosCar()}>
@@ -149,15 +157,12 @@ class Principal extends Component {
                             
                         </div>
                     </React.Fragment>
+                    
                     :
         
                     <section className="movieContainer">
-                        {this.state.resultados.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} />)}
-                        
+                        {this.state.resultados.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} />)}     
                     </section>
-                    
-
-
                 }
             </div>
 
