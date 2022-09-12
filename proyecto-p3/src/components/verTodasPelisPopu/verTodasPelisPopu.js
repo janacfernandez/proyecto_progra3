@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './VerTodasPelis.css';
+import './verTodasPelis.css';
 import loadingimg from "../../loadingimg.gif";
 
 class VerTodasPelisPopu extends Component {
