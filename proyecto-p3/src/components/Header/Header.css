@@ -1,12 +1,7 @@
-/*------------------
-  Header section
----------------------*/
-
 .header-section {
 	background: black;
 	clear: both;
 	overflow: hidden;
-	padding: 18px 18px;
     display: flex;
     align-items: center;
 }

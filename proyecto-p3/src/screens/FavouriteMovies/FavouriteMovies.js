@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import './FavouriteMovies.css';
+import loadingimg from "../../loadingimg.gif";
+
+//Falta hacer un if cuando no hay favoritos!!!!
 
 class Favourite extends Component {
     constructor() {
@@ -26,14 +29,16 @@ class Favourite extends Component {
                     .then(res => res.json())
                     .then(data => {
                         movies.push(data)
-                            this.setState(
-                                {
-                                    ShowMovie: movies,
 
-                                }
-                            )
+                        this.setState(
+                            {
+                                ShowMovie: movies,
+                                loading: false
+                            }
+                        )
+
                     })
-                        .catch(e => console.log(e))
+                    .catch(e => console.log(e))
             });
             console.log(movies)
         }
@@ -42,17 +47,17 @@ class Favourite extends Component {
     borrar(id) {
         // borrar un objeto del array.
         let favoritos = this.state.ShowMovie.filter(oneMovie => oneMovie.id !== id);
-        
+
         this.setState({
             ShowMovie: favoritos
         })
 
         //borrar un id de localStorage
         let recuperoStorage = JSON.parse(localStorage.getItem('favoritos'));
-        
+
 
         let favoritosStorage = recuperoStorage.filter(oneId => oneId !== id);
-        
+
 
         let favoritosToString = JSON.stringify(favoritosStorage);
         localStorage.setItem('favoritos', favoritosToString)
@@ -65,12 +70,15 @@ class Favourite extends Component {
             <React.Fragment>
 
                 <h2>Películas Favoritas</h2>
+                {this.state.loading ?
+                        <img className ="gifcargando" src={loadingimg} alt="Cargando..." />
+                    :
                 <section className='movieContainer'>
                     {this.state.ShowMovie.map((data, id) => <MovieCard key={data.title + id} name={data.title} img={'https://image.tmdb.org/t/p/w342/' + data.poster_path} alt={data.title} description={data.overview} id={data.id} fav={this.state.favoritos} borrar={(id) => this.borrar(id)} />)}
 
                 </section>
 
-
+               }
             </React.Fragment>
         )
     }
