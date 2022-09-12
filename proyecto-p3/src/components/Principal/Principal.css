@@ -6,3 +6,28 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.gifcargando { 
+    text-align: center;
+}
+ /*Ver despues*/
+
+/*Media queries*/
+/*Tablets*/
+@media (max-width: 768px){
+    
+    .gifcargando {
+        display: inline;
+        width: 70%;
+    }
+
+}    
+
+/*Celulares*/
+@media (max-width: 420px){ 
+    .gifcargando {
+        display: inline;
+        width: 70%;
+    }
+
+}

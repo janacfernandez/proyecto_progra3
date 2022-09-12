@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import './todasPelis.css';
 import '../../loadingimg.gif' 
 
-class todasPelis extends Component {
+class todasPelisPopu extends Component {
 
 
     constructor(props) {
@@ -75,4 +75,4 @@ class todasPelis extends Component {
 }
 
 
-export default todasPelis;
+export default todasPelisPopu;

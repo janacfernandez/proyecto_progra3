@@ -16,6 +16,7 @@ class Principal extends Component {
             moviesCar: [],
             valor: '',
             verMas: true,
+            allMovies: [],
             mensaje: "Ver más"
         }
     }
@@ -29,7 +30,7 @@ class Principal extends Component {
                     movies: [info.results.slice(0, 5), info.results.slice(5, 10), info.results.slice(10, 15), info.results.slice(15, 20)],
                     popularMovies: info.results.slice(0, 5),
                     index: 0,
-                }, ()=> console.log(this.state.movies[0]))
+                }, () => console.log(this.state.movies[0]))
             })
 
         fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key + '&language=es&page=1')
@@ -41,7 +42,7 @@ class Principal extends Component {
                     moviesCar: [movies.slice(0, 5), movies.slice(5, 10)],
                     cartelMovies: movies.slice(0, 5),
                     indexCar: 0,
-                }, ()=>console.log(this.state.cartelMovies))
+                }, () => console.log(this.state.cartelMovies))
             })
     }
 
@@ -79,35 +80,35 @@ class Principal extends Component {
     }
 
     verMenosPop() {
-        if(this.state.index !== 0){
+        if (this.state.index !== 0) {
             this.setState({
                 popularMovies: this.state.movies[this.state.index - 1],
                 index: this.state.index - 1
-            })  
-        }
-        }
-
-        verMasCar() {
-            console.log(this.state.indexCar)
-            console.log(this.state.moviesCar[this.state.indexCar - 1])
-            this.setState({
-                cartelMovies: this.state.moviesCar[this.state.indexCar + 1],
-                indexCar: this.state.indexCar + 1
             })
         }
-    
-        verMenosCar() {
-            
-            if(this.state.indexCar !== 0){
-                this.setState({
-                    cartelMovies: this.state.moviesCar[this.state.indexCar - 1],
-                    indexCar: this.state.indexCar - 1
-                })  
-            }
-            }
+    }
+
+    verMasCar() {
+        console.log(this.state.indexCar)
+        console.log(this.state.moviesCar[this.state.indexCar - 1])
+        this.setState({
+            cartelMovies: this.state.moviesCar[this.state.indexCar + 1],
+            indexCar: this.state.indexCar + 1
+        })
+    }
+
+    verMenosCar() {
+
+        if (this.state.indexCar !== 0) {
+            this.setState({
+                cartelMovies: this.state.moviesCar[this.state.indexCar - 1],
+                indexCar: this.state.indexCar - 1
+            })
+        }
+    }
 
     render() {
-        
+
         return (
             <div>
                 <form onSubmit={(e) => this.evitarSubmit(e)}>
@@ -118,7 +119,7 @@ class Principal extends Component {
                     <React.Fragment>
                         <h1>Más Populares</h1>
                         <section className="movieContainer">
-                            {this.state.popularMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} />)}
+                            {this.state.popularMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id}/>)}
                         </section>
                         <div className='flechas'>
                             <p onClick={() => this.verMenosPop()}>
@@ -132,15 +133,15 @@ class Principal extends Component {
                                 </span>
                             }
                             </p>
-                            
+
                         </div>
-                        
+
                         <h1>En cartelera</h1>
                         <section className="movieContainer">
                             {this.state.cartelMovies.length === 0 ?
                                 <img src={loadingimg} alt="Cargando..." />
                                 :
-                                this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} />)}
+                                this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} />)}
                         </section>
                         <div className='flechas'>
                             <p onClick={() => this.verMenosCar()}>
@@ -156,11 +157,11 @@ class Principal extends Component {
                             </p>
                         </div>
                     </React.Fragment>
-                    
+
                     :
-        
+
                     <section className="movieContainer">
-                        {this.state.resultados.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} />)}     
+                        {this.state.resultados.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id= {elemento.id} />)}     
                     </section>
                 }
             </div>
