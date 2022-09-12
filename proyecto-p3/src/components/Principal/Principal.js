@@ -32,7 +32,7 @@ class Principal extends Component {
                 }, ()=> console.log(this.state.movies[0]))
             })
 
-        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key)
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key + '&language=es&page=1')
             .then(data => data.json())
             .then(info => {
                 let idsMovies = this.state.allMovies.map(elemento => elemento.id)
@@ -154,7 +154,6 @@ class Principal extends Component {
                                 </span>
                             }
                             </p>
-                            
                         </div>
                     </React.Fragment>
                     

@@ -1,10 +1,27 @@
 .movieCard{
-    width: 19%;
+    width: 18%;
     margin: 5px;
+    padding: 10px;
+    background-color: #343536;
+    filter:brightness(100%)
+}
+
+.movieCard :hover {
+    filter:brightness(110%)
+    
 }
 
 .movieCard img {
     width: 100%;
+}
+
+.movieCard h3 {
+    color: white;
+    font-family: sans-serif;
+}
+
+.viewMore{
+    cursor:pointer;
 }
 
 .hide{
@@ -13,4 +30,9 @@
 
 .show{
     display: block;
+}
+
+.contenedorDetalleFav{
+    display: flex;
+    justify-content: space-between;
 }
