@@ -6,8 +6,8 @@ import Footer from './components/Footer/Footer';
 import React from 'react';
 import MovieDetail from './components/MovieDetail/MovieDetail';
 import { Route, Switch } from 'react-router-dom';
-import todasPelisPopu from "./screens/todasPelisPopu/todasPelisPopu";
-import todasPelisCarte from "./screens/todasPelisCarte/todasPelisCarte"
+import TodasPelisPopu from "./screens/TodasPelisPopu/TodasPelisPopu";
+import TodasPelisCarte from "./screens/TodasPelisCarte/TodasPelisCarte"
 import FavouriteMovies from './screens/FavouriteMovies/FavouriteMovies';
 import NotFound from "./screens/NotFound/NotFound";
 
@@ -21,8 +21,8 @@ function App() {
         <Switch>
           <Route path='/' exact={true} component={Home} />
           <Route path='/movie/id/:id' component={MovieDetail} />
-          <Route path='/todasPelisPopu' component={todasPelisPopu} />
-          <Route path='/todasPelisCarte' component={todasPelisCarte} />
+          <Route path='/TodasPelisPopu' component={TodasPelisPopu} />
+          <Route path='/TodasPelisCarte' component={TodasPelisCarte} />
           <Route path='/movie/FavouriteMovies' component={FavouriteMovies} />
           <Route path='' component={NotFound} />
           <Route />

@@ -1,74 +1,84 @@
-.cadaContenedorPelis{
-    color: rgb(219, 214, 214);
+.cadaContenedorPelis {
+    color: black;
     font-size: 15px;
     padding: 10px;
     margin-bottom: 20px;
     width: 18%;
-    background-color: rgba(95, 93, 93, 0.616);
+    background-color: #00C2CB;
     border-radius: 5px;
-    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15);
 }
-.cadaContenedorPelis img{
-    max-width: 100%;   
+
+.cadaContenedorPelis img {
+    max-width: 100%;
     border-radius: 5px;
 }
+
 .cadaContenedorPelis:hover,
-.active{
-box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
+.active {
+    box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
 }
+
 .cadaContenedorPelis p {
     margin: 6px;
 }
+
 .cadaContenedorPelis h3 {
     margin: 10px;
 }
-.masPelisCard{
-    color: rgb(2, 2, 138);
+
+.masPelisCard {
+    color: black;
     text-align: right;
     font-weight: bold;
     margin: 5px;
 }
+
 .cadaContenedorPelis div {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
 }
+
 .irAlDetalleSeries {
     font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
-    border-radius: 25px;
+    border-radius: 10px;
     border-color: 0px;
     padding: 5px;
-    background-color: rgba(240, 255, 255, 0.767);
     text-align: center;
+}
+
+.irAlDetalleSeries a {
+    text-decoration: none;
     color: black;
     font-weight: bold;
-
+    text-align: center;
 }
 
 .irAlDetalleSeries:hover,
-.active{
-box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
+.active {
+    box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
 }
 
-@media (max-width: 768px){
-    
-    .cadaContenedorPelis {      
-        width:48%;
-    }    
+@media (max-width: 768px) {
+
+    .cadaContenedorPelis {
+        width: 48%;
+    }
 
 }
 
-@media (max-width: 420px){ 
+@media (max-width: 420px) {
 
     .cadaContenedorPelis {
         font-size: 15px;
         width: 80%;
-    } 
-    .cadaContenedorPelis img{
-        max-width: 200px;   
-    }   
+    }
+
+    .cadaContenedorPelis img {
+        max-width: 200px;
+    }
 
 }
