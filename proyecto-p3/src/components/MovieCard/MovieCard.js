@@ -75,7 +75,9 @@ agregarYQuitarDeFavs(id){
                <Link to={`/movie/id/${this.props.id}`}> 
                 <img src={this.props.img} alt={this.props.alt}/> 
               </Link>
-              <p onClick={()=>this.agregarYQuitarDeFavs(this.props.id)}>{this.state.favsMessage}</p>
+             {!this.props.fav ? 
+             <p onClick={()=>this.agregarYQuitarDeFavs(this.props.id)}>{this.state.favsMessage}</p> : 
+             <p onClick={()=>this.props.borrar(this.props.id)}>Eliminar</p> } 
               <p onClick={() => this.verMasFunc()}>
             {
               this.state.verMas ? "Ver Más" : "Ver menos"
