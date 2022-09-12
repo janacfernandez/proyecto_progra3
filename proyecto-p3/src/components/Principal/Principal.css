@@ -1,5 +1,23 @@
+*{
+    margin: 0px 0px;
+    padding: 0px;
+}
+
+.buscador{
+    padding:8px;
+    margin: 25px 15px;
+    width: 25%
+
+}
+
 body {
-    background-color: #010369;
+    background-color: #3b3b3b;
+}
+
+h1{
+    color: #00C2CB;
+    font-family: sans-serif;
+    margin: 25px 15px;
 }
 
 .flechas {
@@ -7,10 +25,20 @@ body {
     justify-content: center;
 }
 
+.movieContainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px
+}
+
+.material-symbols-outlined{
+    color: white;
+    cursor: pointer;
+}
+
 .gifcargando { 
     text-align: center;
 }
- /*Ver despues*/
 
 /*Media queries*/
 /*Tablets*/
