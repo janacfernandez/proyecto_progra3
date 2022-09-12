@@ -1,9 +1,7 @@
 .movieCard{
     width: 18%;
-    background-color: #9c9c9c;
     border-radius: 5%;
     margin: 10px 0;
-
 }
 
 .movieCard :hover {
@@ -28,7 +26,10 @@
 }
 
 .contenedor1 {
-   margin: 10px;
+   margin: 15px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 }
 
 .viewMore{
@@ -46,6 +47,7 @@
 .contenedorDetalleFav{
     display: flex;
     justify-content: space-between;
-    margin: 10px;
+    margin-top: 10px;
+
 }
 

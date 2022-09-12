@@ -111,12 +111,20 @@ class Principal extends Component {
 
         return (
             <div>
-                <form onSubmit={(e) => this.evitarSubmit(e)}>
+                <section className='primera'>
+                <h1>Todo lo que te gusta ver, en un solo lugar.</h1>
+                         
+
+                </section>
+                
+
+                
+                   
+                        <form onSubmit={(e) => this.evitarSubmit(e)}>
                     <input className = "buscador" type="text" onChange={(e) => this.controlarCambios(e)} placeholder='¿Qué querés ver?' />
                 </form>
-
                 {this.state.valor.length === 0 ?
-                    <React.Fragment>
+                <React.Fragment>
                         <h1>Más Populares</h1>
                         <section className="movieContainer populares">
                             {this.state.popularMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id}/>)}
@@ -127,7 +135,7 @@ class Principal extends Component {
                                     arrow_back_ios
                                 </span>
                             </p>
-                            <p onClick={() => this.verMasPop()}>{this.state.index === 3 ? <Link to={'/'}>Ver todas</Link> :
+                            <p onClick={() => this.verMasPop()}>{this.state.index === 3 ? <Link to={'/'}><p className = "text">Ver todas</p></Link> :
                                 <span className="material-symbols-outlined">
                                     arrow_forward_ios
                                 </span>

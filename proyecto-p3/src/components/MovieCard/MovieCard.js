@@ -74,16 +74,22 @@ class MovieCard extends Component {
             <Link to={`/movie/id/${this.props.id}`}>
             <img src={this.props.img} alt={this.props.alt} />
           </Link>
+          
           <div className='contenedor1'>
-          <h3>{this.props.name}</h3>
-          <div className='contenedorDetalleFav'>
+         
+          <div className='contenedorDetalleFav'><h3>{this.props.name}</h3>
             <p className="viewMore" onClick={() => this.verMasFunc()}>
               {
-                this.state.verMas ? "Ver Más" : "Ver menos"
+                this.state.verMas ? <span class="material-symbols-outlined">
+                expand_more
+                </span> : <span class="material-symbols-outlined">
+expand_less
+</span>
               }
             </p>
-            <p onClick={() => this.agregarYQuitarDeFavs(this.props.id)}>{this.state.favsMessage}</p>
+           
           </div>
+           <p onClick={() => this.agregarYQuitarDeFavs(this.props.id)}>{this.state.favsMessage}</p>
           {this.state.verMas ? <p className="hide">{this.props.description}</p> : <p class="show">{this.props.description}</p>}
          
           </div>

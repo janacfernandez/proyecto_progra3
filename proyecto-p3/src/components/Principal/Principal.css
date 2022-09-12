@@ -1,18 +1,52 @@
 *{
     margin: 0px 0px;
     padding: 0px;
+    
 }
 
 .buscador{
     padding:8px;
     margin: 25px 15px;
-    width: 25%
+    width: 80%;
+    height: 25px;
+    background-color: #0e02b3;
+ 
 
+}
+
+.buscador::placeholder{
+    color:white;
 }
 
 body {
-    background-color: #3b3b3b;
+    background-image: url("../../../public/img/textura.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
+
+.primera{
+    background-image: url("../../../public/img/primera3.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+
+
+.primera h1,
+text{
+    color: white;
+    font-size: 2em;
+    margin: 0;
+}
+
+
 
 h1{
     color: #00C2CB;
