@@ -135,7 +135,8 @@ class Principal extends Component {
                                     arrow_back_ios
                                 </span>
                             </p>
-                            <p onClick={() => this.verMasPop()}>{this.state.index === 3 ? <Link to={'/'}><p className = "text">Ver todas</p></Link> :
+
+                            <p onClick={() => this.verMasPop()}>{this.state.index === 3 ? <Link to={'/TodasPelisPopu'}>Ver todas</Link> :
                                 <span className="material-symbols-outlined">
                                     arrow_forward_ios
                                 </span>
@@ -147,7 +148,7 @@ class Principal extends Component {
                         <h1>En cartelera</h1>
                         <section className="movieContainer cartelera">
                             {this.state.cartelMovies.length === 0 ?
-                                <img src={loadingimg} alt="Cargando..." />
+                                <img className ="gifcargando" src={loadingimg} alt="Cargando..." />
                                 :
                                 this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} />)}
                                 
@@ -158,7 +159,7 @@ class Principal extends Component {
                                     arrow_back_ios
                                 </span>
                             </p>
-                            <p onClick={() => this.verMasCar()}>{this.state.indexCar === 1 ? <Link to={'/'}>Ver todas</Link> :
+                            <p onClick={() => this.verMasCar()}>{this.state.indexCar === 1 ? <Link to={'/TodasPelisCarte'}>Ver todas</Link> :
                                 <span className="material-symbols-outlined">
                                     arrow_forward_ios
                                 </span>

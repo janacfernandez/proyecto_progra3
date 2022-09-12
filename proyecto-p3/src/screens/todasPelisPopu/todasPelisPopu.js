@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-/* import verTodasPelis from "../../components/verTodasPelis/verTodasPelis"; */
+import VerTodasPelisPopu from "../../components/VerTodasPelisPopu/verTodasPelisPopu"; 
 import './todasPelis.css';
-import '../../loadingimg.gif' 
+import loadingimg from "../../loadingimg.gif";
 
-class todasPelisPopu extends Component {
+class TodasPelisPopu extends Component {
 
 
     constructor(props) {
         super(props)
         this.state = {
-            haciendoFetch: true,
+            key: 'f59e4c6662e96a0d026c2c66a7dcf812',
+            loading: true,
             data: [],
             siguientePag: ''
         }
@@ -23,19 +24,19 @@ class todasPelisPopu extends Component {
             .then(data => this.setState({
                 data: data.results,
                 siguientePag: data.page + 1,
-                haciendoFetch: false
+                loading: false
             }))
             .catch(error => console.log(error));
     }
 
 
     showMoreCharacters() {
-        fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=${this.state.info.key}&language=es=${this.state.siguientePag}`)
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key)
             .then(response => response.json())
             .then(data => this.setState({
                 data: this.state.data.concat(data.results),
                 siguientePag: data.page + 1,
-                haciendoFetch: false,
+                loading: false,
             }))
             .catch(error => console.log(error));
     }
@@ -43,30 +44,28 @@ class todasPelisPopu extends Component {
     render() {
         return (
 
+            <React.Fragment>
+                {this.state.loading === true ?
 
-            /*   this.state.haciendoFetch === true ?
+                    <img src={loadingimg} alt="Espere a que cargue la página" />
 
-             <img src={loadingimg} alt="Espere a que cargue la página" /> 
-
-                : */
-
-                <React.Fragment>
+                    :
 
                     <div>
 
-                        <div className="allMoviesH1"> <h1> Todas las peliculas </h1> </div>
+                        <div className="todasPelisH1"> <h1> Todas las peliculas populares </h1> </div>
 
-                        <section className='allMoviesContainer'>
+                        <section className='todasPelisContainer'>
 
-                            {this.state.data.map((data, id) => <verTodasPelis data={data} key={data + '_' + id} />)}
+                            {this.state.data.map((data, id) => <VerTodasPelisPopu data={data} key={data + '_' + id} />)}
 
 
                         </section>
 
-                        <div className="buttonVerMasAllMovies-container"> <button onClick={() => this.showMoreCharacters()} className="buttonVerMasAllMovies"> Ver más </button> </div>
+                        <div className="buttonVerMasTodasPelis-container"> <button onClick={() => this.showMoreCharacters()} className="buttonVerMasTodasPelis"> Ver más </button> </div>
 
-                    </div>
-                </React.Fragment>
+                    </div>}
+            </React.Fragment>
 
 
 
@@ -75,4 +74,4 @@ class todasPelisPopu extends Component {
 }
 
 
-export default todasPelisPopu;
+export default TodasPelisPopu;
