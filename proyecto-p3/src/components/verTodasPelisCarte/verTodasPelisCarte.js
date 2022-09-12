@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './verTodasSeries.css'
+import './verTodasPelisCarte.css'
 
-class verTodasSeries extends Component{
+class verTodasPelisCarte extends Component{
 
     constructor(props){
         super(props);
@@ -49,4 +49,4 @@ class verTodasSeries extends Component{
     }
 }
 
-export default verTodasSeries;
+export default verTodasPelisCarte;
