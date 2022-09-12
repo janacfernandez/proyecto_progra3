@@ -13,6 +13,7 @@ class Principal extends Component {
             resultados: [],
             valor: '',
             verMas: true,
+            allMovies: []
         }
     }
 
@@ -90,7 +91,7 @@ class Principal extends Component {
                             {this.state.cartelMovies.length === 0 ?
                                 <img src={loadingimg} alt="Cargando..." />
                                 :
-                                this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} />)}
+                                this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} />)}
                         </section>
                        
                         <div /*falta el link*/ > 

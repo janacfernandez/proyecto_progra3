@@ -1,5 +1,5 @@
 import React from 'react';
-/*import {Link} from 'react-router-dom'; */
+import {Link} from 'react-router-dom'; 
 import './Header.css';
 
 
@@ -12,12 +12,16 @@ function Header() {
               
                     <nav className='main-menu'>
                     <ul>
-                        <li>
+                        <Link to="/" >
+                            <li>
                             Home
-                        </li>
-                        <li>
+                         </li> 
+                        </Link>
+                        <Link to="/movie/FavouriteMovies" >
+                            <li>
                             Favoritos
-                        </li>
+                        </li> 
+                        </Link>
                         <li>
                             Populares
                         </li>

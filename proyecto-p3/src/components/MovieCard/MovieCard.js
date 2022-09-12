@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './MovieCard.css';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 class MovieCard extends Component {
     constructor(props){
@@ -63,8 +63,6 @@ agregarYQuitarDeFavs(id){
  
   let favoritosToString = JSON.stringify(favoritos);
   localStorage.setItem('favoritos', favoritosToString);
-
-  
   console.log(localStorage);
 }
 
@@ -78,7 +76,7 @@ agregarYQuitarDeFavs(id){
                 <img src={this.props.img} alt={this.props.alt}/> 
               </Link>
               <p onClick={()=>this.agregarYQuitarDeFavs(this.props.id)}>{this.state.favsMessage}</p>
-                <p onClick={() => this.verMasFunc()}>
+              <p onClick={() => this.verMasFunc()}>
             {
               this.state.verMas ? "Ver Más" : "Ver menos"
             }
