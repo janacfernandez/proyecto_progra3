@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import VerTodasPelisCarte from "../../components/VerTodasPelisCarte/VerTodasPelisCarte"; 
+import VerTodasPelisCarte from "../../components/VerTodasPelisCarte/VerTodasPelisCarte";
 import './todasPelisCarte.css';
+import Form from '../../components/Form/Form';
 import loadingimg from "../../loadingimg.gif";
 
 class TodasPelisCarte extends Component {
@@ -12,6 +13,7 @@ class TodasPelisCarte extends Component {
             key: 'f59e4c6662e96a0d026c2c66a7dcf812',
             loading: true,
             data: [],
+            data2: [],
             siguientePag: ''
         }
     }
@@ -23,6 +25,7 @@ class TodasPelisCarte extends Component {
             .then(response => response.json())
             .then(data => this.setState({
                 data: data.results,
+                data2: data.results,
                 siguientePag: data.page + 1,
                 loading: false
             }))
@@ -35,16 +38,28 @@ class TodasPelisCarte extends Component {
             .then(response => response.json())
             .then(data => this.setState({
                 data: this.state.data.concat(data.results),
+                data2: this.state.data.concat(data.results),
                 siguientePag: data.page + 1,
                 loading: false,
             }))
             .catch(error => console.log(error));
     }
 
+    filtrarPelis(Filtro) {
+        let pelisFiltradas = this.state.data.filter(peli => peli.title.toLowerCase().includes(Filtro.toLowerCase()))
+        this.setState({
+            data2: pelisFiltradas,
+        })
+    }
+
     render() {
         return (
 
             <React.Fragment>
+
+                <div className='arriba-todas'>
+                    <Form filtrarPelis={(Filtro) => this.filtrarPelis(Filtro)} />
+                </div>
                 {this.state.loading === true ?
 
                     <img src={loadingimg} alt="Espere a que cargue la página" />
