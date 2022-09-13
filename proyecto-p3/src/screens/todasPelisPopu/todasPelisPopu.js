@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import VerTodasPelisPopu from "../../components/VerTodasPelisPopu/VerTodasPelisPopu";
+import VerTodasPelisPopu from "../../components/VerTodasPelisPopu/verTodasPelisPopu"; 
 import './todasPelis.css';
 import Form from '../../components/Form/Form';
 import loadingimg from "../../loadingimg.gif";

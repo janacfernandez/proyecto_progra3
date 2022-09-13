@@ -9,8 +9,8 @@ class Favourite extends Component {
     constructor() {
         super();
         this.state = {
-            ShowMovie: [],
-            loading: true //Es array de objetos literales con cada Movie
+            ShowMovie: [],//Es array de objetos literales con cada Movie
+            favoritos: true
         }
     }
 
@@ -21,6 +21,7 @@ class Favourite extends Component {
         if (recuperoStorage !== null) {
             let movieFav = JSON.parse(recuperoStorage) //array de ids
             let movies = [];
+
             //recorrer el array y pedir al endpoint los datos de cada Movie.
             movieFav.forEach((id) => {
 
@@ -29,12 +30,12 @@ class Favourite extends Component {
                     .then(data => {
                         movies.push(data)
 
-                            this.setState(
-                                {
-                                    ShowMovie: movies,
-                                    loading: false
-                                }
-                            )
+                        this.setState(
+                            {
+                                ShowMovie: movies,
+                                loading: false
+                            }
+                        )
 
                     })
                     .catch(e => console.log(e))
@@ -43,21 +44,41 @@ class Favourite extends Component {
         }
     }
 
+    borrar(id) {
+        // borrar un objeto del array.
+        let favoritos = this.state.ShowMovie.filter(oneMovie => oneMovie.id !== id);
+
+        this.setState({
+            ShowMovie: favoritos
+        })
+
+        //borrar un id de localStorage
+        let recuperoStorage = JSON.parse(localStorage.getItem('favoritos'));
+
+
+        let favoritosStorage = recuperoStorage.filter(oneId => oneId !== id);
+
+
+        let favoritosToString = JSON.stringify(favoritosStorage);
+        localStorage.setItem('favoritos', favoritosToString)
+    }
+
+
+
     render() {
         return (
             <React.Fragment>
 
                 <h2>Películas Favoritas</h2>
-                {
-                    this.state.loading ?
+                {this.state.loading ?
                         <img className ="gifcargando" src={loadingimg} alt="Cargando..." />
-                        :
-                        <section className='movieContainer'>
-                            {this.state.ShowMovie.map((data, id) => <MovieCard key={data.title + id} name={data.title} img={'https://image.tmdb.org/t/p/w342/' + data.poster_path} alt={data.title} description={data.overview} id={data.id} />)}
+                    :
+                <section className='movieContainer'>
+                    {this.state.ShowMovie.map((data, id) => <MovieCard key={data.title + id} name={data.title} img={'https://image.tmdb.org/t/p/w342/' + data.poster_path} alt={data.title} description={data.overview} id={data.id} fav={this.state.favoritos} borrar={(id) => this.borrar(id)} />)}
 
-                        </section>
-                }
+                </section>
 
+               }
             </React.Fragment>
         )
     }
