@@ -35,7 +35,7 @@ class VerTodasPelisCarte extends Component {
                         <p> Fecha de estreno: {this.props.data.release_date}</p>
                         {this.state.verMas ?
                             <section className='extraCarte'>
-                                <p> Visión general: {this.props.data.overview}</p>
+                                <p> Resumen: {this.props.data.overview}</p>
                                 <p className='masCarte' onClick={() => this.hide()}> Ver menos </p>
                             </section>
                             :

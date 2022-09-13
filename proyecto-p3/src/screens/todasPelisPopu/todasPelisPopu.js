@@ -73,7 +73,7 @@ class TodasPelisPopu extends Component {
 
                         <section className='todasPelisContainer'>
 
-                            {this.state.data.map((data, id) => <VerTodasPelisPopu data={data} key={data + '_' + id} />)}
+                            {this.state.data2.map((data, id) => <VerTodasPelisPopu data={data} key={data + '_' + id} />)}
 
 
                         </section>

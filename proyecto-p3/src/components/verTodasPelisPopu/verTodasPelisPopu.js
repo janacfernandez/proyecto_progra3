@@ -35,7 +35,7 @@ class VerTodasPelisPopu extends Component {
                         <p> Fecha de estreno: {this.props.data.release_date}</p>
                         {this.state.verMas ?
                             <section className='extraAllMoviesCard'>
-                                <p> Visión general: {this.props.data.overview}</p>
+                                <p> Resumen: {this.props.data.overview}</p>
                                 <p className='masPelisCard' onClick={() => this.hide()}>Ver menos</p>
                             </section>
                             :
