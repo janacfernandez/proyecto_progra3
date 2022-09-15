@@ -20,7 +20,7 @@ class TodasPelisCarte extends Component {
 
 
     componentDidMount() {
-        let url = 'https://api.themoviedb.org/3/movie/popular?api_key=' + this.state.key + '&language=es&page=1'
+        let url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key + '&language=es&page=1'
         fetch(url)
             .then(response => response.json())
             .then(data => this.setState({
@@ -34,7 +34,7 @@ class TodasPelisCarte extends Component {
 
 
     showMoreCharacters() {
-        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key)
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key + '&language=es&page=' + this.state.siguientePag)
             .then(response => response.json())
             .then(data => this.setState({
                 data: this.state.data.concat(data.results),
@@ -57,9 +57,7 @@ class TodasPelisCarte extends Component {
 
             <React.Fragment>
 
-                <div className='arriba-todas'>
-                    <Form filtrarPelis={(Filtro) => this.filtrarPelis(Filtro)} />
-                </div>
+
                 {this.state.loading === true ?
 
                     <img src={loadingimg} alt="Espere a que cargue la página" />
@@ -69,6 +67,8 @@ class TodasPelisCarte extends Component {
                     <div>
 
                         <div className="todasPelisH1"> <h1> Todas las peliculas en cartelera </h1> </div>
+
+                        <Form filtrarPelis={(Filtro) => this.filtrarPelis(Filtro)} />
 
                         <section className='todasPelisContainer'>
 

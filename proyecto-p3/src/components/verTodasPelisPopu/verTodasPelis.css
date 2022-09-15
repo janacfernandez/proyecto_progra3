@@ -41,7 +41,7 @@
     justify-content: space-between;
 }
 
-.irAlDetalleSeries {
+.irAlDetalleCarte {
     font-size: 15px;
     font-weight: lighter;
     border-radius: 10px;
@@ -50,14 +50,18 @@
     text-align: center;
 }
 
-.irAlDetalleSeries a {
+.irAlDetalleCarte a {
     text-decoration: none;
     color: black;
     font-weight: bold;
     text-align: center;
 }
 
-.irAlDetalleSeries:hover,
+.iraldetalle {
+    border-radius: 15px;
+}
+
+.iraldetalle:hover,
 .active {
     box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
 }

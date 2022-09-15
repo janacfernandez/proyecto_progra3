@@ -13,10 +13,10 @@ class VerTodasPelisCarte extends Component {
         }
     };
     show() {
-        this.setState({ verMas: true})
+        this.setState({ verMas: true })
     }
     hide() {
-        this.setState({ verMas: false})
+        this.setState({ verMas: false })
     }
 
     render() {
@@ -31,19 +31,23 @@ class VerTodasPelisCarte extends Component {
                         <Link to={`/movie/id/${this.props.data.id}`}>
                             <img src={`https://image.tmdb.org/t/p/w342/${this.props.data.poster_path}`} alt="Foto pelicula en cartelera" />
                         </Link>
-                        <h3>{this.props.data.name}</h3>
+                        <h3>{this.props.data.title}</h3>
                         <p> Fecha de estreno: {this.props.data.release_date}</p>
                         {this.state.verMas ?
                             <section className='extraCarte'>
                                 <p> Resumen: {this.props.data.overview}</p>
-                                <p className='masCarte' onClick={() => this.hide()}> Ver menos </p>
+                                <p className='masCarte' onClick={() => this.hide()}> <span class="material-symbols-outlined">
+                                    expand_less
+                                </span> </p>
                             </section>
                             :
-                            <p className='masCarte' onClick={() => this.show()}> Ver más </p>
+                            <p className='masCarte' onClick={() => this.show()}> <span class="material-symbols-outlined">
+                                expand_more
+                            </span> </p>
 
                         }
-                        <div>
-                            <Link className='irAlDetalleCarte' to={`/movie/id/${this.props.data.id}`}> Ir al detalle </Link>
+                        <div className='irAlDetalleCarte'>
+                            <Link className='iraldetalle' to={`/movie/id/${this.props.data.id}`}> Ir al detalle </Link>
                             <p className='favoritosCarte'><span className="material-symbols-outlined"> </span></p>
                         </div>
 

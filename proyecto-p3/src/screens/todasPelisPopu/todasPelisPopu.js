@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import VerTodasPelisPopu from "../../components/VerTodasPelisPopu/verTodasPelisPopu"; 
 import './todasPelis.css';
 import Form from '../../components/Form/Form';
 import loadingimg from "../../loadingimg.gif";
+import MovieCard from "../../components/MovieCard/MovieCard";
 
 class TodasPelisPopu extends Component {
 
@@ -30,11 +30,13 @@ class TodasPelisPopu extends Component {
                 loading: false
             }))
             .catch(error => console.log(error));
+
+
     }
 
 
     showMoreCharacters() {
-        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key)
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=' + this.state.key + '&language=es&page=' + this.state.siguientePag)
             .then(response => response.json())
             .then(data => this.setState({
                 data: this.state.data.concat(data.results),
@@ -57,24 +59,19 @@ class TodasPelisPopu extends Component {
 
             <React.Fragment>
 
-                <div className='arriba-todas'>
-                    <Form filtrarPelis={(Filtro) => this.filtrarPelis(Filtro)} />
-                </div>
-
-                {this.state.loading === true ?
-
-                    <img src={loadingimg} alt="Espere a que cargue la página" />
-
+                {this.state.loading ?
+                    <img className="gifcargando" src={loadingimg} alt="Cargando..." />
                     :
 
                     <div>
 
                         <div className="todasPelisH1"> <h1> Todas las peliculas populares </h1> </div>
 
+                        <Form filtrarPelis={(Filtro) => this.filtrarPelis(Filtro)} />
+
                         <section className='todasPelisContainer'>
 
-                            {this.state.data2.map((data, id) => <VerTodasPelisPopu data={data} key={data + '_' + id} />)}
-
+                            {this.state.data2.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} />)})
 
                         </section>
 

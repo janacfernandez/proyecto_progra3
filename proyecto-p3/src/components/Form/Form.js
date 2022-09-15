@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Form.css';
 
 
 class Form extends Component {
@@ -24,8 +25,12 @@ class Form extends Component {
 
     render() {
         return (
-            <form onSubmit={(e) => this.evitarSubmit(e)} className='evitar'>
+            <form onSubmit={(e) => this.evitarSubmit(e)} className='formFiltro'>
                 <input placeholder="Filtrar peliculas" onChange={(e) => this.obtenerDatos(e)} type="text" name="usuario" value={this.state.value} />
+                <span class="material-symbols-outlined">
+                    filter_list
+                </span>
+
 
             </form>)
 
@@ -33,3 +38,5 @@ class Form extends Component {
 }
 
 export default Form;
+
+// <img className='formFoto' src="./img/buscarfoto.png" alt="foto buscar"></img> 
