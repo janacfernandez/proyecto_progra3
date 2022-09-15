@@ -71,14 +71,14 @@ class Favourite extends Component {
 
                 <h2>Películas Favoritas</h2>
                 {this.state.loading ?
-                        <img className ="gifcargando" src={loadingimg} alt="Cargando..." />
+                    <img className="gifcargando" src={loadingimg} alt="Cargando..." />
                     :
-                <section className='movieContainer'>
-                    {this.state.ShowMovie.map((data, id) => <MovieCard key={data.title + id} name={data.title} img={'https://image.tmdb.org/t/p/w342/' + data.poster_path} alt={data.title} description={data.overview} id={data.id} fav={this.state.favoritos} borrar={(id) => this.borrar(id)} />)}
+                    <section className='movieContainer'>
+                        {this.state.ShowMovie.map((data, id) => <MovieCard key={data.title + id} name={data.title} img={'https://image.tmdb.org/t/p/w342/' + data.poster_path} alt={data.title} description={data.overview} id={data.id} fav={this.state.favoritos} borrar={(id) => this.borrar(id)} />)}
 
-                </section>
+                    </section>
 
-               }
+                }
             </React.Fragment>
         )
     }

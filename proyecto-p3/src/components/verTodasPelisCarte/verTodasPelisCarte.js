@@ -13,10 +13,10 @@ class VerTodasPelisCarte extends Component {
         }
     };
     show() {
-        this.setState({ verMas: true})
+        this.setState({ verMas: true })
     }
     hide() {
-        this.setState({ verMas: false})
+        this.setState({ verMas: false })
     }
 
     render() {
