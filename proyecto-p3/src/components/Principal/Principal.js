@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import { Link } from 'react-router-dom';
-import '../Principal/Principal.css'
+import '../Principal/Principal.css';
 import loadingimg from "../../loadingimg.gif";
 
 class Principal extends Component {
@@ -17,7 +17,6 @@ class Principal extends Component {
             valor: '',
             verMas: true,
             allMovies: [],
-            mensaje: "Ver más"
         }
     }
 
@@ -30,7 +29,7 @@ class Principal extends Component {
                     movies: [info.results.slice(0, 5), info.results.slice(5, 10), info.results.slice(10, 15), info.results.slice(15, 20)],
                     popularMovies: info.results.slice(0, 5),
                     index: 0,
-                }, () => console.log(this.state.movies[0]))
+                }, () => console.log(this.state.allMovies[0].release_date))
             })
 
         fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key + '&language=es&page=1')
@@ -42,7 +41,7 @@ class Principal extends Component {
                     moviesCar: [movies.slice(0, 5), movies.slice(5, 10)],
                     cartelMovies: movies.slice(0, 5),
                     indexCar: 0,
-                }, () => console.log(this.state.cartelMovies))
+                }, () => console.log(this.state.movies))
             })
     }
 
@@ -89,8 +88,6 @@ class Principal extends Component {
     }
 
     verMasCar() {
-        console.log(this.state.indexCar)
-        console.log(this.state.moviesCar[this.state.indexCar - 1])
         this.setState({
             cartelMovies: this.state.moviesCar[this.state.indexCar + 1],
             indexCar: this.state.indexCar + 1
@@ -98,7 +95,6 @@ class Principal extends Component {
     }
 
     verMenosCar() {
-
         if (this.state.indexCar !== 0) {
             this.setState({
                 cartelMovies: this.state.moviesCar[this.state.indexCar - 1],
@@ -108,26 +104,21 @@ class Principal extends Component {
     }
 
     render() {
-
         return (
             <div>
                 <section className='primera'>
                 <h1>Todo lo que te gusta ver, en un solo lugar.</h1>
-                         
-
                 </section>
-                
 
-                
-                   
-                        <form onSubmit={(e) => this.evitarSubmit(e)}>
+                <form onSubmit={(e) => this.evitarSubmit(e)}>
                     <input className = "buscador" type="text" onChange={(e) => this.controlarCambios(e)} placeholder='¿Qué querés ver?' />
                 </form>
+
                 {this.state.valor.length === 0 ?
                 <React.Fragment>
                         <h1>Más Populares</h1>
                         <section className="movieContainer populares">
-                            {this.state.popularMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id}/>)}
+                            {this.state.popularMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date = {elemento.release_date}/>)}
                         </section>
                         <div className='flechas'>
                             <p onClick={() => this.verMenosPop()}>
@@ -150,7 +141,7 @@ class Principal extends Component {
                             {this.state.cartelMovies.length === 0 ?
                                 <img className ="gifcargando" src={loadingimg} alt="Cargando..." />
                                 :
-                                this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} />)}
+                                this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date = {elemento.release_date}/>)}
                                 
                         </section>
                         <div className='flechas'>
@@ -172,7 +163,7 @@ class Principal extends Component {
                     :
 
                     <section className="movieContainer">
-                        {this.state.resultados.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id= {elemento.id} />)}     
+                        {this.state.resultados.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id= {elemento.id} release_date = {elemento.release_date}/>)}     
                     </section>
                 }
             </div>

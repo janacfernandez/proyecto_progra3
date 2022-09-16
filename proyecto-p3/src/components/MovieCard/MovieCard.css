@@ -51,3 +51,22 @@
 
 }
 
+@media (max-width: 768px){
+    .movieCard{
+        width: 48%;
+    }
+
+}    
+
+/*Celulares*/
+@media (max-width: 420px){ 
+    .movieCard{
+        width: 95%;
+    } 
+
+    .movieCard h3{
+        font-size: 1.5em;
+        margin: 10px;
+    }
+
+}

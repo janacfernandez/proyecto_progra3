@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import VerTodasPelisPopu from "../../components/VerTodasPelisPopu/verTodasPelisPopu"; 
+import VerTodasPelisPopu from "../../components/verTodasPelisPopu/verTodasPelisPopu"; 
 import './todasPelis.css';
 import loadingimg from "../../loadingimg.gif";
 
@@ -15,7 +15,6 @@ class TodasPelisPopu extends Component {
             siguientePag: ''
         }
     }
-
 
     componentDidMount() {
         let url = 'https://api.themoviedb.org/3/movie/popular?api_key=' + this.state.key + '&language=es&page=1'

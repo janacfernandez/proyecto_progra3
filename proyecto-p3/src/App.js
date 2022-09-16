@@ -6,8 +6,8 @@ import Footer from './components/Footer/Footer';
 import React from 'react';
 import MovieDetail from './components/MovieDetail/MovieDetail';
 import { Route, Switch } from 'react-router-dom';
-import TodasPelisPopu from "./screens/TodasPelisPopu/TodasPelisPopu";
-import TodasPelisCarte from "./screens/TodasPelisCarte/TodasPelisCarte"
+import TodasPelisPopu from "./screens/todasPelisPopu/todasPelisPopu";
+import TodasPelisCarte from "./screens/todasPelisCarte/todasPelisCarte"
 import FavouriteMovies from './screens/FavouriteMovies/FavouriteMovies';
 import NotFound from "./screens/NotFound/NotFound";
 
