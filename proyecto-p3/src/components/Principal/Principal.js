@@ -107,18 +107,22 @@ class Principal extends Component {
         return (
             <div>
                 <section className='primera'>
+
                 <h1>Todo lo que te gusta ver, en un solo lugar.</h1>
                 </section>
 
-                <form onSubmit={(e) => this.evitarSubmit(e)}>
-                    <input className = "buscador" type="text" onChange={(e) => this.controlarCambios(e)} placeholder='¿Qué querés ver?' />
+                
+                 <form onSubmit={(e) => this.evitarSubmit(e)}>
+                    <input className="buscador" type="text" onChange={(e) => this.controlarCambios(e)} placeholder='¿Qué querés ver?' />
                 </form>
 
                 {this.state.valor.length === 0 ?
-                <React.Fragment>
+                    <React.Fragment>
                         <h1>Más Populares</h1>
                         <section className="movieContainer populares">
+
                             {this.state.popularMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date = {elemento.release_date}/>)}
+
                         </section>
                         <div className='flechas'>
                             <p onClick={() => this.verMenosPop()}>
@@ -139,8 +143,9 @@ class Principal extends Component {
                         <h1>En cartelera</h1>
                         <section className="movieContainer cartelera">
                             {this.state.cartelMovies.length === 0 ?
-                                <img className ="gifcargando" src={loadingimg} alt="Cargando..." />
+                                <img className="gifcargando" src={loadingimg} alt="Cargando..." />
                                 :
+
                                 this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date = {elemento.release_date}/>)}
                                 
                         </section>
@@ -157,13 +162,15 @@ class Principal extends Component {
                             }
                             </p>
                         </div>
-                        
+
                     </React.Fragment>
 
                     :
 
                     <section className="movieContainer">
+
                         {this.state.resultados.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id= {elemento.id} release_date = {elemento.release_date}/>)}     
+
                     </section>
                 }
             </div>

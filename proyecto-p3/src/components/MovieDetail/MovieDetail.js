@@ -32,7 +32,7 @@ class MovieDetail extends Component {
             <>
                 {
                     this.state.loading ?
-                        <img className ="gifcargando" src={loadingimg} alt="Cargando..." />
+                        <img className="gifcargando" src={loadingimg} alt="Cargando..." />
                         :
                         <article className='card-container'>
                             <h1 className="main-title">{this.state.info.title}</h1>

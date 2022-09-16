@@ -72,11 +72,12 @@ class MovieCard extends Component {
       <React.Fragment>
         <article className="movieCard">
           <h3>{this.props.name}</h3>
-
           <Link to={`/movie/id/${this.props.id}`}>
             <img src={this.props.img} alt={this.props.alt} />
           </Link>
-
+          {!this.props.fav ?
+            <p onClick={() => this.agregarYQuitarDeFavs(this.props.id)}>{this.state.favsMessage}</p> :
+            <p onClick={() => this.props.borrar(this.props.id)}>Eliminar</p>}
 
           <p onClick={() => this.verMasFunc()}>
             {
@@ -90,18 +91,11 @@ class MovieCard extends Component {
             }
           </p>
 
-        {!this.props.fav ?
-            <p onClick={() => this.agregarYQuitarDeFavs(this.props.id)}>{this.state.favsMessage}</p> :
-            <p onClick={() => this.props.borrar(this.props.id)}>Eliminar</p>}
-
 
          {this.state.verMas ? 
          <div className="hide"><p>Fecha de lanzamiento: {this.props.release_date}</p><p>{this.props.description}</p></div> :
          <div className="show"><p>Fecha de lanzamiento: {this.props.release_date}</p><p>{this.props.description}</p></div>}
 
-          
-
-          
         </article>
 
       </React.Fragment>

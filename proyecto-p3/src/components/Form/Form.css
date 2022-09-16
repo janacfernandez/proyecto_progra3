@@ -1,0 +1,9 @@
+.formFiltro {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.formFoto {
+    size: 10px;
+}

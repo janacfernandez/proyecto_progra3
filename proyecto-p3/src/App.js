@@ -22,8 +22,8 @@ function App() {
           <Route path='/' exact={true} component={Home} />
           <Route path='/movie/id/:id' component={MovieDetail} />
           <Route path='/TodasPelisPopu' exact={true} component={TodasPelisPopu} />
-          <Route path='/TodasPelisCarte'  exact={true}component={TodasPelisCarte} />
-          <Route path='/movie/FavouriteMovies'  exact={true} component={FavouriteMovies} />
+          <Route path='/TodasPelisCarte' exact={true} component={TodasPelisCarte} />
+          <Route path='/movie/FavouriteMovies' exact={true} component={FavouriteMovies} />
           <Route path='' component={NotFound} />
           <Route />
           <Route />
