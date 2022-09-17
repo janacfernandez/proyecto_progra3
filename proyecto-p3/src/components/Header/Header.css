@@ -17,8 +17,9 @@
 	width: 75%;
 	display: flex;
 	justify-content: center;
-
 }
+
+
 .main-menu .nav {
 	list-style: none;
     display: flex;
@@ -26,6 +27,7 @@
 	justify-content: space-around;
     
 }
+
 .main-menu .nav li  {
 	display: inline-block;
 	font-size: 16px;
@@ -42,6 +44,18 @@
 	color: #00C2CB;
 }
 
+.material-symbols-outlined{
+	display:none;
+}
+
+
+.mostrar {
+	display: block;
+}
+
+.ocultar {
+	display: none;
+}
 
 /*Media queries*/
 /*Tablets*/
@@ -49,27 +63,45 @@
 	.site-logo {
 		width: 15%;
 	}
+
 	.main-menu .nav {
 		width: 100%;
 	}
 
+	
+	
+
 	.main-menu .nav li  {
 		font-size: 14px;
 	}
+
+	
 }    
 
 /*Celulares*/
 @media (max-width: 420px){ 
 
 	.site-logo {
-		width: 30%;
+		width: 45%;
+		justify-content: center;
 	}
-	.main-menu .nav {
+
+	.material-symbols-outlined{
+		display:block;
+	}
+
+	.header-section{
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	/* .main-menu .nav {
+		
+		display: none;
 		margin-right: auto;
 		justify-content: flex-end;
 		flex-wrap:  wrap;
 		align-items: center;
-
 	}
-    
+     */
 }
