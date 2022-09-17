@@ -1,0 +1,16 @@
+.favName {
+    text-align: center;
+    color:  #1e1e1e;
+    background-color:  #00C2CB;
+    margin-top: 10px;
+}
+
+.movieContainer {
+
+    padding: 10px;
+}
+
+
+.movieCard .delete:hover {
+	color: #00C2CB;
+}

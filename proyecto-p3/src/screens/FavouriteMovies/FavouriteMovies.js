@@ -69,7 +69,7 @@ class Favourite extends Component {
         return (
             <React.Fragment>
 
-                <h2>Películas Favoritas</h2>
+                <h1 className='favName'>Películas Favoritas</h1>
                 {this.state.loading ?
                     <img className="gifcargando" src={loadingimg} alt="Cargando..." />
                     :

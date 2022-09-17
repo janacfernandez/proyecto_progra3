@@ -4,10 +4,10 @@ import Home from './components/Home/Home';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import React from 'react';
-import MovieDetail from './components/MovieDetail/MovieDetail';
+import MovieDetail from './screens/MovieDetail/MovieDetail';
 import { Route, Switch } from 'react-router-dom';
-import TodasPelisPopu from "./screens/todasPelisPopu/todasPelisPopu";
-import TodasPelisCarte from "./screens/todasPelisCarte/todasPelisCarte"
+import TodasPelisPopu from "./screens/TodasPelisPopu/TodasPelisPopu";
+import TodasPelisCarte from "./screens/TodasPelisCarte/TodasPelisCarte";
 import FavouriteMovies from './screens/FavouriteMovies/FavouriteMovies';
 import NotFound from "./screens/NotFound/NotFound";
 

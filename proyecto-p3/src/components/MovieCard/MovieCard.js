@@ -76,25 +76,25 @@ class MovieCard extends Component {
             <img src={this.props.img} alt={this.props.alt} />
           </Link>
           {!this.props.fav ?
-            <p onClick={() => this.agregarYQuitarDeFavs(this.props.id)}>{this.state.favsMessage}</p> :
-            <p onClick={() => this.props.borrar(this.props.id)}>Eliminar</p>}
+            <p className = "favs" onClick={() => this.agregarYQuitarDeFavs(this.props.id)}>{this.state.favsMessage}</p> :
+            <p className = "delete" onClick={() => this.props.borrar(this.props.id)}>Eliminar</p>}
 
           <p onClick={() => this.verMasFunc()}>
             {
-              this.state.verMas ? 
-              <span className="material-symbols-outlined">
-                expand_more
-              </span> : 
-              <span className="material-symbols-outlined">
-                expand_less
-              </span>
+              this.state.verMas ?
+                <span className="material-symbols-outlined">
+                  expand_more
+                </span> :
+                <span className="material-symbols-outlined">
+                  expand_less
+                </span>
             }
           </p>
 
 
-         {this.state.verMas ? 
-         <div className="hide"><p>Fecha de lanzamiento: {this.props.release_date}</p><p>{this.props.description}</p></div> :
-         <div className="show"><p>Fecha de lanzamiento: {this.props.release_date}</p><p>{this.props.description}</p></div>}
+          {this.state.verMas ?
+            <div className="hide"><p>Fecha de lanzamiento: {this.props.release_date}</p><p>{this.props.description}</p></div> :
+            <div className="show"><p>Fecha de lanzamiento: {this.props.release_date}</p><p>{this.props.description}</p></div>}
 
         </article>
 

@@ -11,7 +11,7 @@ function Header() {
             <img src="/img/logo.png" alt="Logo" className='site-logo' />
 
             <nav className='main-menu'>
-                <ul>
+                <ul className='nav'>
                     <Link to="/" >
                         <li>
                             Home

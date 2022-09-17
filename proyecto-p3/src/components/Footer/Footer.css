@@ -17,20 +17,18 @@
 	float: right;
     margin: auto;
     padding: 0%;
+	display: flex;
+	justify-content: space-between;
 
 }
 
-.footer-menu li {
-	display: inline;
-}
 
 .footer-menu li a {
     text-decoration: none;
-	display: inline-block;
 	font-size: 14px;
 	font-weight: 500;
 	color: #aeaeae;
-	margin-left: 30px;
+	padding: 10px;
 }
 
 .footer-menu li a:hover {
@@ -43,4 +41,24 @@
     font-size: small;
 	font-weight: 300;
 	color: #aeaeae;
+	margin-top: 10px;
+}
+
+/*Media queries*/
+/*Tablets*/
+@media (max-width: 768px){
+   
+}    
+
+/*Celulares*/
+@media (max-width: 420px){ 
+
+  .footer-menu{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  }
+  .footer-menu li a {
+	margin-left: 0%;
+  }
 }
