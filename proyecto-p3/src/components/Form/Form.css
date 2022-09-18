@@ -7,3 +7,11 @@
 .formFoto {
     size: 10px;
 }
+
+  ::placeholder {
+   font-family: Optima, sans-serif;
+}
+
+form input {
+    border-radius: 5px;
+}

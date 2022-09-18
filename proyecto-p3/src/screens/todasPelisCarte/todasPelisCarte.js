@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import VerTodasPelisCarte from "../../components/verTodasPelisCarte/VerTodasPelisCarte";
-import './todasPelisCarte.css';
+import MovieCard from "../../components/MovieCard/MovieCard";
 import Form from '../../components/Form/Form';
 import loadingimg from "../../loadingimg.gif";
 
@@ -48,7 +47,7 @@ class TodasPelisCarte extends Component {
     filtrarPelis(Filtro) {
         let pelisFiltradas = this.state.data.filter(peli => peli.title.toLowerCase().includes(Filtro.toLowerCase()))
         this.setState({
-            data2: pelisFiltradas,
+            data2: pelisFiltradas
         })
     }
 
@@ -58,10 +57,8 @@ class TodasPelisCarte extends Component {
             <React.Fragment>
 
 
-                {this.state.loading === true ?
-
-                    <img src={loadingimg} alt="Espere a que cargue la página" />
-
+                {this.state.loading ?
+                    <img className="gifcargando" src={loadingimg} alt="Cargando..." />
                     :
 
                     <div>
@@ -72,7 +69,7 @@ class TodasPelisCarte extends Component {
 
                         <section className='todasPelisContainer'>
 
-                            {this.state.data2.map((data, id) => <VerTodasPelisCarte data={data} key={data + '_' + id} />)}
+                        {this.state.data2.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date={elemento.release_date} />)})
 
 
                         </section>
