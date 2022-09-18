@@ -1,6 +1,7 @@
 *{
     margin: 0px 0px;
     padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
     
 }
 
@@ -12,7 +13,7 @@
 .buscador{
     padding:8px;
     margin: 25px 15px;
-    width: 80%;
+    width: 90%;
     height: 25px;
     background-color: #0e02b3;
 }
@@ -47,19 +48,20 @@ text{
 
 h1{
     color: #00C2CB;
-    font-family: sans-serif;
     margin: 25px 15px;
 }
 
 .flechas {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 10px;
 }
 
 .movieContainer{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin: 10px
 }
 
@@ -67,13 +69,32 @@ h1{
 	color: #00C2CB;
 }
 
-.material-symbols-outlined{
+.arrows{
     color: white;
     cursor: pointer;
+    margin: 10px 0px;
 }
 
 .gifcargando { 
     text-align: center;
+}
+
+.primera h1 {
+    background-color: #00c1cbb3;
+    padding: 2.5% 2% ;
+}
+
+.noResulados {
+    color: white;
+    font-size: 1.5em;
+    margin: 2%;
+}
+
+.todas {
+    color: white;
+    background-color: #00c1cbb3;
+    padding: 3px;
+    text-decoration: none;
 }
 
 /*Media queries*/

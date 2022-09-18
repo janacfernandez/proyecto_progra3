@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import MovieCard from '../MovieCard/MovieCard';
+import MovieCard from '../../components/MovieCard/MovieCard';
 import { Link } from 'react-router-dom';
-import '../Principal/Principal.css';
+import './Principal.css';
 import loadingimg from "../../loadingimg.gif";
 
 class Principal extends Component {
@@ -29,7 +29,7 @@ class Principal extends Component {
                     movies: [info.results.slice(0, 5), info.results.slice(5, 10), info.results.slice(10, 15), info.results.slice(15, 20)],
                     popularMovies: info.results.slice(0, 5),
                     index: 0,
-                }, () => console.log(this.state.allMovies[0].release_date))
+                })
             })
 
         fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key + '&language=es&page=1')
@@ -41,7 +41,7 @@ class Principal extends Component {
                     moviesCar: [movies.slice(0, 5), movies.slice(5, 10)],
                     cartelMovies: movies.slice(0, 5),
                     indexCar: 0,
-                }, () => console.log(this.state.movies))
+                })
             })
     }
 
@@ -107,71 +107,75 @@ class Principal extends Component {
         return (
             <div>
                 <section className='primera'>
-
-                    <h1>Todo lo que te gusta ver, en un solo lugar.</h1>
+                    <h1>Todas tus películas favoritas, en un solo lugar.</h1>
                 </section>
-
 
                 <form onSubmit={(e) => this.evitarSubmit(e)}>
                     <input className="buscador" type="text" onChange={(e) => this.controlarCambios(e)} placeholder='¿Qué querés ver?' />
                 </form>
 
                 {this.state.valor.length === 0 ?
+
                     <React.Fragment>
+
                         <h1>Más Populares</h1>
+
                         <section className="movieContainer populares">
 
                             {this.state.popularMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date={elemento.release_date} />)}
 
                         </section>
+
                         <div className='flechas'>
                             <p onClick={() => this.verMenosPop()}>
-                                <span className="material-symbols-outlined">
+                                <span className="material-symbols-outlined arrows">
                                     arrow_back_ios
                                 </span>
                             </p>
 
-                            <p onClick={() => this.verMasPop()}>{this.state.index === 3 ? <Link to={'/TodasPelisPopu'}>Ver todas</Link> :
-                                <span className="material-symbols-outlined">
+                            <p onClick={() => this.verMasPop()}>{this.state.index === 3 ? <Link to={'/TodasPelisPopu'} className = 'todas'>Ver todas</Link> :
+                                <span className="material-symbols-outlined arrows">
                                     arrow_forward_ios
                                 </span>
                             }
                             </p>
-
                         </div>
 
                         <h1>En cartelera</h1>
+
                         <section className="movieContainer cartelera">
                             {this.state.cartelMovies.length === 0 ?
                                 <img className="gifcargando" src={loadingimg} alt="Cargando..." />
+                                
                                 :
 
                                 this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date={elemento.release_date} />)}
-
                         </section>
+
                         <div className='flechas'>
                             <p onClick={() => this.verMenosCar()}>
-                                <span className="material-symbols-outlined">
+                                <span className="material-symbols-outlined arrows">
                                     arrow_back_ios
                                 </span>
                             </p>
-                            <p onClick={() => this.verMasCar()}>{this.state.indexCar === 1 ? <Link to={'/TodasPelisCarte'}>Ver todas</Link> :
-                                <span className="material-symbols-outlined">
+                            <p onClick={() => this.verMasCar()}>{this.state.indexCar === 1 ? <Link to={'/TodasPelisCarte'} className = 'todas'>Ver todas</Link> :
+                                <span className="material-symbols-outlined arrows">
                                     arrow_forward_ios
                                 </span>
                             }
                             </p>
                         </div>
-
                     </React.Fragment>
 
                     :
 
-                    <section className="movieContainer">
+                    this.state.resultados.length === 0 ?
 
-                        {this.state.resultados.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date={elemento.release_date} />)}
+                        <h3 className="noResulados">No se han encontrado resultados para: {this.state.valor}</h3> :
 
-                    </section>
+                        <section className="movieContainer">
+                            {this.state.resultados.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date={elemento.release_date} />)}
+                        </section>
                 }
             </div>
 

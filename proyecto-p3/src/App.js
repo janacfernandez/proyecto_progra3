@@ -1,6 +1,6 @@
 import './App.css';
 
-import Home from './components/Home/Home';
+import Principal from './screens/Principal/Principal';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import React from 'react';
@@ -19,7 +19,7 @@ function App() {
       <div>
 
         <Switch>
-          <Route path='/' exact={true} component={Home} />
+          <Route path='/' exact={true} component={Principal} />
           <Route path='/movie/id/:id' component={MovieDetail} />
           <Route path='/TodasPelisPopu' exact={true} component={TodasPelisPopu} />
           <Route path='/TodasPelisCarte' exact={true} component={TodasPelisCarte} />
