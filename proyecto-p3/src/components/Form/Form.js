@@ -38,5 +38,3 @@ class Form extends Component {
 }
 
 export default Form;
-
-// <img className='formFoto' src="./img/buscarfoto.png" alt="foto buscar"></img> 
