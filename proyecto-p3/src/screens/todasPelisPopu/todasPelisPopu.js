@@ -30,7 +30,6 @@ class TodasPelisPopu extends Component {
             }))
             .catch(error => console.log(error));
 
-
     }
 
 
@@ -63,27 +62,21 @@ class TodasPelisPopu extends Component {
                     :
 
                     <div>
-
                         <div className="todasPelisH1"> <h1> Todas las peliculas populares </h1> </div>
-
                         <Form filtrarPelis={(Filtro) => this.filtrarPelis(Filtro)} />
 
                         <section className='todasPelisContainer'>
-
-                            {this.state.data2.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date={elemento.release_date} />)})
-
+                            {this.state.data2.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date={elemento.release_date} />)}
                         </section>
 
-                        <div className="buttonVerMasTodasPelis-container"> <button onClick={() => this.showMoreCharacters()} className="buttonVerMasTodasPelis"> Ver más </button> </div>
-
+                        <div className="buttonVerMasTodasPelis-container">
+                            <button onClick={() => this.showMoreCharacters()} className="buttonVerMasTodasPelis"> Ver más </button>
+                        </div>
                     </div>}
+
             </React.Fragment>
-
-
-
         )
     }
 }
-
 
 export default TodasPelisPopu;

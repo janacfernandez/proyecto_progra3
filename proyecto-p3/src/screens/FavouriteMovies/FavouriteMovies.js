@@ -3,14 +3,15 @@ import MovieCard from '../../components/MovieCard/MovieCard';
 import './FavouriteMovies.css';
 import loadingimg from "../../loadingimg.gif";
 
-//Falta hacer un if cuando no hay favoritos!!!!
+
 
 class Favourite extends Component {
     constructor() {
         super();
         this.state = {
             ShowMovie: [],//Es array de objetos literales con cada Movie
-            favoritos: true
+            favoritos: true,
+            // loading: true,
         }
     }
 
@@ -63,8 +64,6 @@ class Favourite extends Component {
         localStorage.setItem('favoritos', favoritosToString)
     }
 
-
-
     render() {
         return (
             <React.Fragment>
@@ -77,12 +76,11 @@ class Favourite extends Component {
                         {this.state.ShowMovie.map((data, id) => <MovieCard key={data.title + id} name={data.title} img={'https://image.tmdb.org/t/p/w342/' + data.poster_path} alt={data.title} description={data.overview} id={data.id} fav={this.state.favoritos} borrar={(id) => this.borrar(id)} release_date={data.release_date} />)}
 
                     </section>
-
                 }
+
             </React.Fragment>
         )
     }
-
 }
 
 export default Favourite; 

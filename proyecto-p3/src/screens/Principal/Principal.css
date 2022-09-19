@@ -1,8 +1,6 @@
 *{
     margin: 0px 0px;
     padding: 0px;
-    font-family: Arial, Helvetica, sans-serif;
-    
 }
 
 #root {
@@ -62,7 +60,7 @@ h1{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 10px
+    margin: 10px;
 }
 
 .movieCard .favs:hover {
@@ -77,6 +75,7 @@ h1{
 
 .gifcargando { 
     text-align: center;
+    width: 99%;
 }
 
 .primera h1 {
@@ -100,10 +99,13 @@ h1{
 /*Media queries*/
 /*Tablets*/
 @media (max-width: 768px){
-
     .gifcargando {
         display: inline;
         width: 70%;
+    }
+
+    body {
+        width: 100%;
     }
 
 }    

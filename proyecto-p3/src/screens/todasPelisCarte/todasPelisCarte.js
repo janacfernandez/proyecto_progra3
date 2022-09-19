@@ -5,7 +5,6 @@ import loadingimg from "../../loadingimg.gif";
 
 class TodasPelisCarte extends Component {
 
-
     constructor(props) {
         super(props)
         this.state = {
@@ -16,7 +15,6 @@ class TodasPelisCarte extends Component {
             siguientePag: ''
         }
     }
-
 
     componentDidMount() {
         let url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key + '&language=es&page=1'
@@ -30,7 +28,6 @@ class TodasPelisCarte extends Component {
             }))
             .catch(error => console.log(error));
     }
-
 
     showMoreCharacters() {
         fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key + '&language=es&page=' + this.state.siguientePag)
@@ -56,7 +53,6 @@ class TodasPelisCarte extends Component {
 
             <React.Fragment>
 
-
                 {this.state.loading ?
                     <img className="gifcargando" src={loadingimg} alt="Cargando..." />
                     :
@@ -69,7 +65,7 @@ class TodasPelisCarte extends Component {
 
                         <section className='todasPelisContainer'>
 
-                        {this.state.data2.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date={elemento.release_date} />)})
+                            {this.state.data2.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date={elemento.release_date} />)})
 
 
                         </section>
@@ -78,12 +74,8 @@ class TodasPelisCarte extends Component {
 
                     </div>}
             </React.Fragment>
-
-
-
         )
     }
 }
-
 
 export default TodasPelisCarte;

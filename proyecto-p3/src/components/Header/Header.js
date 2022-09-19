@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Nav from '../Nav/Nav';
 import './Header.css';
 
-
 class Header extends Component {
     constructor() {
         super();
@@ -29,27 +28,19 @@ class Header extends Component {
                 </span>
 
                 {window.screen.width <= 460 ?
-                    
+
                     this.state.menu ?
                         ""
                         :
                         <nav className='main-menu mostrar'>
                             <Nav></Nav>
                         </nav>
-                     :
+                    :
 
                     <nav className='main-menu mostrar'>
-                            <Nav></Nav>
-                        </nav>
-
-                
-                
-                
-                
+                        <Nav></Nav>
+                    </nav>
                 }
-                    
-
-
             </header>
         )
     }

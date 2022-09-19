@@ -2,18 +2,18 @@
 	background: black;
 	clear: both;
 	overflow: hidden;
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 	padding: 1%;
 }
 
 .site-logo {
-    width: 12%;
+	width: 12%;
 	margin-left: 20px;
 }
 
 .main-menu {
-    padding: 5px;
+	padding: 5px;
 	width: 75%;
 	display: flex;
 	justify-content: center;
@@ -22,13 +22,13 @@
 
 .main-menu .nav {
 	list-style: none;
-    display: flex;
+	display: flex;
 	width: 70%;
 	justify-content: space-around;
-    
+
 }
 
-.main-menu .nav li  {
+.main-menu .nav li {
 	display: inline-block;
 	font-size: 16px;
 	color: #fff;
@@ -36,7 +36,7 @@
 	font-weight: 500;
 	padding: 10px 10px;
 	font-family: Arial, Helvetica, sans-serif;
-	
+
 }
 
 
@@ -44,8 +44,8 @@
 	color: #00C2CB;
 }
 
-.menu{
-	display:none;
+.menu {
+	display: none;
 }
 
 
@@ -59,7 +59,7 @@
 
 /*Media queries*/
 /*Tablets*/
-@media (max-width: 768px){
+@media (max-width: 768px) {
 	.site-logo {
 		width: 20%;
 	}
@@ -68,30 +68,30 @@
 		width: 100%;
 	}
 
-	
-	
 
-	.main-menu .nav li  {
+
+
+	.main-menu .nav li {
 		font-size: 14px;
 	}
 
-	
-}    
+
+}
 
 /*Celulares*/
-@media (max-width: 420px){ 
+@media (max-width: 420px) {
 
 	.site-logo {
 		width: 55%;
 		justify-content: center;
 	}
 
-	.menu{
-		display:block;
+	.menu {
+		display: block;
 		color: white;
 	}
 
-	.header-section{
+	.header-section {
 		flex-direction: column;
 		justify-content: center;
 	}

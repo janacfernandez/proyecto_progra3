@@ -75,35 +75,32 @@ class MovieCard extends Component {
           <Link to={`/movie/id/${this.props.id}`}>
             <img src={this.props.img} alt={this.props.alt} />
           </Link>
-          
-          <div className ='contenedorDetalleFav'>
-          <p onClick={() => this.verMasFunc()}>
-            {
-              this.state.verMas ?
-                <span className="material-symbols-outlined">
-                  expand_more
-                </span> :
-                <span className="material-symbols-outlined">
-                  expand_less
-                </span>
-            }
-          </p>
 
-          {!this.props.fav ?
-            <p className = "favs" onClick={() => this.agregarYQuitarDeFavs(this.props.id)}>{this.state.favsMessage}</p> :
-            <p className = "delete" onClick={() => this.props.borrar(this.props.id)}>Eliminar</p>}
+          <div className='contenedorDetalleFav'>
+
+            <p onClick={() => this.verMasFunc()}>
+              {
+                this.state.verMas ?
+                  <span className="material-symbols-outlined">
+                    expand_more
+                  </span> :
+                  <span className="material-symbols-outlined">
+                    expand_less
+                  </span>
+              }
+            </p>
+
+            {!this.props.fav ?
+              <p className="favs" onClick={() => this.agregarYQuitarDeFavs(this.props.id)}>{this.state.favsMessage}</p> :
+              <p className="delete" onClick={() => this.props.borrar(this.props.id)}>Eliminar</p>}
 
           </div>
 
-         
-
-
           {this.state.verMas ?
-            <div className="hide"><p>Fecha de lanzamiento: {this.props.release_date}</p><p>{this.props.description}</p></div> :
-            <div className="show"><p>Fecha de lanzamiento: {this.props.release_date}</p><p>{this.props.description}</p></div>}
+            "" :
+            <div className="show"><p>Fecha de lanzamiento: {this.props.release_date}</p><p>Resumen: {this.props.description}</p></div>}
 
         </article>
-
       </React.Fragment>
     )
   }

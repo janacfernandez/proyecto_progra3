@@ -1,11 +1,11 @@
-.movieCard{
+.movieCard {
     width: 18%;
     border-radius: 5%;
     margin: 10px 0;
 }
 
 .movieCard :hover {
-    filter:brightness(110%);    
+    filter: brightness(110%);
 }
 
 .movieCard img {
@@ -16,56 +16,56 @@
 
 .movieCard h3 {
     color: white;
-    font-family: Optima, sans-serif;
     font-size: 1em;
     margin: 15px 0px;
 }
-.movieCard p{
+
+.movieCard p {
     color: white;
-    font-family: Optima, sans-serif;
-    font-size: 0,5em;
+    margin: 10px 0px;
 }
+
+
 
 .contenedor1 {
-   margin: 15px;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.viewMore{
-    cursor:pointer;
+.viewMore {
+    cursor: pointer;
 }
 
-.hide{
-    display: none;
-}
-
-.show{
+.show {
     display: block;
 }
 
-.contenedorDetalleFav{
+.contenedorDetalleFav {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
-
 }
 
-@media (max-width: 768px){
-    .movieCard{
+.contenedorDetalleFav p{
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .movieCard {
         width: 48%;
     }
 
-}    
+}
 
 /*Celulares*/
-@media (max-width: 420px){ 
-    .movieCard{
+@media (max-width: 420px) {
+    .movieCard {
         width: 95%;
-    } 
+    }
 
-    .movieCard h3{
+    .movieCard h3 {
         font-size: 1.5em;
         margin: 10px;
     }

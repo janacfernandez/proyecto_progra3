@@ -45,9 +45,10 @@ class Principal extends Component {
             })
     }
 
-    evitarSubmit(e) {
-        e.preventDefault();
-    }
+    //---No va a ser necesario ya que el buscador es en tiempo real y el usuario nunca lo submitea--//
+    // evitarSubmit(e) {
+    //     e.preventDefault();
+    // }
 
     controlarCambios(e) {
         this.setState({
@@ -110,7 +111,7 @@ class Principal extends Component {
                     <h1>Todas tus películas favoritas, en un solo lugar.</h1>
                 </section>
 
-                <form onSubmit={(e) => this.evitarSubmit(e)}>
+                <form>
                     <input className="buscador" type="text" onChange={(e) => this.controlarCambios(e)} placeholder='¿Qué querés ver?' />
                 </form>
 
@@ -121,8 +122,9 @@ class Principal extends Component {
                         <h1>Más Populares</h1>
 
                         <section className="movieContainer populares">
-
-                            {this.state.popularMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date={elemento.release_date} />)}
+                            {this.state.popularMovies.length === 0 ?
+                                <img className="gifcargando" src={loadingimg} alt="Cargando..." /> :
+                                this.state.popularMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date={elemento.release_date} />)}
 
                         </section>
 
@@ -133,7 +135,7 @@ class Principal extends Component {
                                 </span>
                             </p>
 
-                            <p onClick={() => this.verMasPop()}>{this.state.index === 3 ? <Link to={'/TodasPelisPopu'} className = 'todas'>Ver todas</Link> :
+                            <p onClick={() => this.verMasPop()}>{this.state.index === 3 ? <Link to={'/TodasPelisPopu'} className='todas'>Ver todas</Link> :
                                 <span className="material-symbols-outlined arrows">
                                     arrow_forward_ios
                                 </span>
@@ -146,7 +148,7 @@ class Principal extends Component {
                         <section className="movieContainer cartelera">
                             {this.state.cartelMovies.length === 0 ?
                                 <img className="gifcargando" src={loadingimg} alt="Cargando..." />
-                                
+
                                 :
 
                                 this.state.cartelMovies.map((elemento, i) => <MovieCard key={elemento + i} name={elemento.title} img={'https://image.tmdb.org/t/p/w342/' + elemento.poster_path} alt={elemento.title} description={elemento.overview} id={elemento.id} release_date={elemento.release_date} />)}
@@ -158,7 +160,7 @@ class Principal extends Component {
                                     arrow_back_ios
                                 </span>
                             </p>
-                            <p onClick={() => this.verMasCar()}>{this.state.indexCar === 1 ? <Link to={'/TodasPelisCarte'} className = 'todas'>Ver todas</Link> :
+                            <p onClick={() => this.verMasCar()}>{this.state.indexCar === 1 ? <Link to={'/TodasPelisCarte'} className='todas'>Ver todas</Link> :
                                 <span className="material-symbols-outlined arrows">
                                     arrow_forward_ios
                                 </span>
@@ -178,7 +180,6 @@ class Principal extends Component {
                         </section>
                 }
             </div>
-
         )
     }
 }

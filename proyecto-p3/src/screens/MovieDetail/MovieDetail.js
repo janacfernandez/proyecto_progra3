@@ -16,6 +16,7 @@ class MovieDetail extends Component {
             loading: true,
         }
     }
+    
     componentDidMount() {
         fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=${this.state.info.key}&language=es`)
             .then(response => response.json())
@@ -36,7 +37,7 @@ class MovieDetail extends Component {
                         <img className="gifcargando" src={loadingimg} alt="Cargando..." />
                         :
                         <section className='detail-container'>
-                                <MovieCard key={this.state.info.title + 1} name={this.state.info.title} img={'https://image.tmdb.org/t/p/w342/' + this.state.info.poster_path} alt={this.state.info.title} description={this.state.info.overview} id={this.state.info.id} release_date={this.state.info.release_date}/>
+                            <MovieCard key={this.state.info.title + 1} name={this.state.info.title} img={'https://image.tmdb.org/t/p/w342/' + this.state.info.poster_path} alt={this.state.info.title} description={this.state.info.overview} id={this.state.info.id} release_date={this.state.info.release_date} />
                             <article className='detail-info'>
                                 <p> <span className='tituloDetail'>Rating:  </span> {this.state.info.popularity} ptos
                                 </p>
