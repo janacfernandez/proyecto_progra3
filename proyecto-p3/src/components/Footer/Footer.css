@@ -9,6 +9,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+	bottom:0;
+	width: 100%;
 }
 
 .footer-menu {
@@ -28,7 +30,7 @@
 	font-weight: 500;
 	color: #aeaeae;
 	padding: 10px;
-	font-family: Optima, sans-serif;
+	font-family: sans-serif;
 }
 
 .footer-menu li a:hover {
@@ -42,7 +44,7 @@
 	font-weight: 300;
 	color: #aeaeae;
 	margin-top: 10px;
-	font-family: Optima, sans-serif;
+	font-family: sans-serif;
 }
 
 /*Media queries*/

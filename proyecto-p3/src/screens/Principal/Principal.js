@@ -44,11 +44,9 @@ class Principal extends Component {
                 })
             })
     }
-
-    //---No va a ser necesario ya que el buscador es en tiempo real y el usuario nunca lo submitea--//
-    // evitarSubmit(e) {
-    //     e.preventDefault();
-    // }
+         evitarSubmit(e) {
+        e.preventDefault();
+    }
 
     controlarCambios(e) {
         this.setState({
@@ -111,7 +109,7 @@ class Principal extends Component {
                     <h1>Todas tus películas favoritas, en un solo lugar.</h1>
                 </section>
 
-                <form>
+                <form onSubmit={(e) => this.evitarSubmit(e)}>
                     <input className="buscador" type="text" onChange={(e) => this.controlarCambios(e)} placeholder='¿Qué querés ver?' />
                 </form>
 

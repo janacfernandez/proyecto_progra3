@@ -7,15 +7,18 @@
     width: 100%;
 }
 
+
 .buttonVerMasTodasPelis-container {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
+
 }
 
 .buttonVerMasTodasPelis {
     background-color: #00C2CB;
     color: black;
-    font-family: Optima, sans-serif;
+    font-family:  sans-serif;
     font-size: 22px;
     font-weight: bold;
     border: white 2px solid;
@@ -29,17 +32,12 @@
     justify-content: center;
 }
 
-.todasPelisH1 h1 {
-    margin: 25px 15px 0px 0px;
-}
-
 @media (max-width: 768px) {
 
     .todasPelisContainer {
         flex-direction: row;
         justify-content: space-around;
     }
-
 }
 
 @media (max-width: 420px) {

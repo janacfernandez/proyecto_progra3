@@ -14,7 +14,7 @@ class Form extends Component {
 
     }
 
-    obtenerDatos(e) {
+    controlarCambios(e) {
         this.setState({
             value: e.target.value,
         }, () => this.props.filtrarPelis(this.state.value))
@@ -23,7 +23,7 @@ class Form extends Component {
     render() {
         return (
             <form onSubmit={(e) => this.evitarSubmit(e)} className='formFiltro'>
-                <input placeholder="Filtrar peliculas" onChange={(e) => this.obtenerDatos(e)} type="text" name="usuario" value={this.state.value} />
+                <input placeholder="Filtrar peliculas" onChange={(e) => this.controlarCambios(e)} type="text" name="usuario" value={this.state.value} />
                 <span class="material-symbols-outlined filt">
                     filter_list
                 </span>

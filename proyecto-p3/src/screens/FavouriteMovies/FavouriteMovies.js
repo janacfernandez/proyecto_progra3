@@ -11,7 +11,7 @@ class Favourite extends Component {
         this.state = {
             ShowMovie: [],//Es array de objetos literales con cada Movie
             favoritos: true,
-            // loading: true,
+            //loading: true,
         }
     }
 
